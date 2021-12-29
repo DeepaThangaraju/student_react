@@ -2,6 +2,8 @@
 import { useHistory } from 'react-router';
 import * as yup from 'yup';
 import { useFormik } from "formik";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 
 const formValidationSchema = yup.object({
@@ -12,7 +14,8 @@ const formValidationSchema = yup.object({
 })
 export function AddForm() {
     
-
+    const sty={width:"20rem",height:"2rem",margin:"1rem"};
+    const mar={margin:"1rem"}
     const history = useHistory();
     const { handleSubmit, values, handleChange, handleBlur, errors, touched } = useFormik({
         initialValues: {
@@ -55,39 +58,59 @@ export function AddForm() {
 
     return (
         <form onSubmit={handleSubmit} className="adding">
-            <input
+            {/* <input
                 id="student_name"
                 name="student_name"
                 value={values.student_name}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="Student name" />
+            {errors.student_name && touched.student_name && errors.student_name}<br /> */}
+            <TextField 
+            id="student_name"
+            name="student_name"
+            value={values.student_name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            style={sty}
+            placeholder="Student name" />
             {errors.student_name && touched.student_name && errors.student_name}<br />
-
-            <input
+            {/* <input
                 id="mentor_name"
                 name="mentor_name"
                 value={values.mentor_name}
                 onChange={handleChange}
                 onBlur={handleBlur}
 
-                placeholder="Mentor name" />
+                placeholder="Mentor name" /> */}
+                <TextField 
+            id="mentor_name"
+            name="mentor_name"
+            value={values.mentor_name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            style={sty}
+            placeholder="Mentor name" />
             {errors.mentor_name && touched.mentor_name && errors.mentor_name}<br />
 
 
-            <input
+            {/* <input
                 id="batch"
                 name="batch"
                 value={values.batch}
                 onChange={handleChange}
                 onBlur={handleBlur}
 
-                placeholder="Batch" />
+                placeholder="Batch" /> */}
+                <TextField 
+            id="batch"
+            name="batch"
+            value={values.batch}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            style={sty}
+            placeholder="Batch" />
             {errors.batch && touched.batch && errors.batch}<br />
-
-
-            
-
-            <button type="submit" >ADD</button>
+            <Button type="submit" style={mar}variant="contained">Add</Button>
         </form>);
 }

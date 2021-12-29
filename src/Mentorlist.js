@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 export function Mentorlist() {
   const [mentor, setMentor] = useState([]);
@@ -22,8 +25,16 @@ export function Mentorlist() {
 function Display1({ name, student }) {
   return (
     <div>
-      <h1>{name}</h1>
-      <h4>Students:</h4>{student.map((arr) => <p>{arr}</p>)}
+      <Card>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+         Mentor Name:{name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        <h3>Students:</h3>{student.map((arr) => <p>{arr}</p>)}
+        </Typography>
+      </CardContent>
+      </Card>
     </div>
   );
 }

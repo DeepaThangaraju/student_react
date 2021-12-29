@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 export function Studentlist() {
   const [student, setStudent] = useState([]);
@@ -33,11 +37,21 @@ export function Studentlist() {
 }
 function Display({ name, mentor, batch, deletebutton }) {
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>{mentor}</p>
-      <p>{batch}</p>
-      <p>{deletebutton}</p>
+    <div className="displaystudent">
+      <Card>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+         Student Name:{name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          <h4>Mentor Name:<span className="sty">{mentor}</span></h4>
+          <h4>Batch:<span className="sty">{batch}</span></h4>
+        </Typography>
+      </CardContent>
+      <CardActions>
+        {deletebutton}
+      </CardActions>
+      </Card>
     </div>
   );
 }

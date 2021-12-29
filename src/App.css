@@ -3,6 +3,18 @@
   flex-wrap: wrap;
   gap:2rem;
 }
+.menu{
+  text-align: center;
+  text-decoration: none;
+}
+.App{
+  margin:auto 0;
+  width:90%;
+  justify-content: center;
+}
+.sty{
+  font-weight: lighter;
+}
 .mentorlist{
   display: flex;
   flex-wrap: wrap;
